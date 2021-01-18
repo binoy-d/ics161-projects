@@ -11,6 +11,7 @@ public class TankControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = 0.5f;
     }
 
     // Update is called once per frame
@@ -23,20 +24,27 @@ public class TankControls : MonoBehaviour
     {
         //forward
         if(Input.GetKey(KeyCode.W)){
-            rb.AddForce(transform.forward*speed);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.Translate(Vector3.forward*speed);
+            //rb.AddForce(transform.forward*speed);
         }
         //backward
         if(Input.GetKey(KeyCode.S)){
-            rb.AddForce(transform.forward*speed*-1);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.Translate(Vector3.forward*speed);
+            //rb.AddForce(transform.forward*speed*-1);
         }
-        //turn left
+        //turn left and move
         if(Input.GetKey(KeyCode.A)){
-            transform.Rotate(0, -3, 0);
+            transform.rotation = Quaternion.Euler(0, -90, 0);
+            transform.Translate(Vector3.forward*speed);
+            //transform.Rotate(0, -3, 0);
         }
-        //turn right
+        //turn right and move
         if(Input.GetKey(KeyCode.D)){
-            
-            transform.Rotate(0, 3, 0);
+            transform.rotation = Quaternion.Euler(0, 90, 0);
+            transform.Translate(Vector3.forward*speed);
+            //transform.Rotate(0, 3, 0);
         }
         
 
