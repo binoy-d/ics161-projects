@@ -79,9 +79,17 @@ public class Moving : MonoBehaviour
         Invoke("revivePlayer", 3); //revive after 3 seconds
     }
 
+    //revives all players, not just this one
+    // move players to set positions to make sure
+    // they dont overlap
     public void revivePlayer(){
         isDead = false;
-        transform.position = new Vector3(Random.Range(-5f, 5f), 1, Random.Range(-5f, 5f));
+        //hard reset the players
+        //i know, i know, hard coding bad but this was the ez solution
+        GameObject.Find("Tank1").transform.position = new Vector3(-5f,1f,-5f);
+        GameObject.Find("Tank2").transform.position = new Vector3(5f,1f,7f);
+        
+        
     }
     
 }
